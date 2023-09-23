@@ -1,3 +1,64 @@
+<style>
+.calculator-container {
+    background-color: #f5f5f5;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #007bff;
+}
+
+.dimension-container {
+    display: inline-block;
+    width: calc(50% - 10px); /* 10px margin between containers */
+    vertical-align: top;
+    margin-right: 10px;
+    text-align: left;
+}
+
+h2 {
+    font-size: 18px;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.input-container {
+    margin-bottom: 10px;
+}
+
+label {
+    font-weight: bold;
+    display: block;
+    color: #333;
+}
+
+input {
+    padding: 8px;
+    width: 100%;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-top: 4px;
+}
+
+.result-container {
+    font-size: 18px;
+    font-weight: bold;
+    color: #007bff;
+}
+
+#brickCount {
+    font-size: 24px;
+    color: #007bff;
+}
+</style>
+<script>
 document.addEventListener("DOMContentLoaded", function () {
     const wallLengthInput = document.getElementById("wallLength");
     const wallHeightInput = document.getElementById("wallHeight");
@@ -22,12 +83,7 @@ document.addEventListener("DOMContentLoaded", function () {
             const brickHeight = brickHeightInInches / 12;
 
             const bricksRequired = (wallLength * wallHeight) / (wallWidth * brickLength * brickWidth * brickHeight);
-
-            // Adjusting for mortar and wastage
-            const bricksPerCubicFoot = 13.5;
-            const totalBricksRequired = bricksRequired * bricksPerCubicFoot;
-
-            brickCount.textContent = Math.ceil(totalBricksRequired);
+            brickCount.textContent = Math.ceil(bricksRequired);
         } else {
             brickCount.textContent = "Invalid Input";
         }
@@ -44,3 +100,5 @@ document.addEventListener("DOMContentLoaded", function () {
     // Initial update
     updateBrickCount();
 });
+</script>
+</style>
